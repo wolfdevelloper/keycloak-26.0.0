@@ -1,5 +1,3 @@
-# Dockerfile
-
 FROM quay.io/keycloak/keycloak:26.0.0
 
 ARG ENV=dev  # Padrão para desenvolvimento
@@ -10,9 +8,7 @@ ENV KC_DB=dev-file
 ENV JAVA_OPTS="-Xmx256m -Xss512k -Djava.awt.headless=true"
 ENV QUARKUS_LOG_LEVEL=DEBUG
 
-
 EXPOSE 8080
 
-# Usando o exec form para garantir que o script seja executado corretamente
 ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
-CMD ["start-dev"]  # Modo de desenvolvimento
+CMD ["start-dev", "--http-port=${PORT}"]
