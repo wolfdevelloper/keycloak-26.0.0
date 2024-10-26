@@ -10,5 +10,6 @@ ENV QUARKUS_LOG_LEVEL=DEBUG
 
 EXPOSE 8080
 
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
-CMD ["start-dev", "--http-port=${PORT}"]
+ENTRYPOINT ["/bin/sh", "-c", "/opt/keycloak/bin/kc.sh start-dev --http-port=$PORT"]
+CMD /opt/keycloak/bin/kc.sh start-dev --http-port=${PORT}
+
