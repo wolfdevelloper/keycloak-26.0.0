@@ -14,7 +14,8 @@ ENV KC_DB=dev-mem
 ENV JAVA_OPTS="-Xmx256m -Xss512k -Djava.awt.headless=true"
 ENV QUARKUS_LOG_LEVEL=DEBUG
 
-ENTRYPOINT ["/opt/jboss/tools/docker-entrypoint.sh"]
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start"]
 
-CMD ["-b", "0.0.0.0"]
+CMD ["start", "--hostname-strict=false"]
+
 
