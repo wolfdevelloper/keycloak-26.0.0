@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  keycloak:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - KC_BOOTSTRAP_ADMIN_USERNAME=admin
+      - KC_BOOTSTRAP_ADMIN_PASSWORD=senha
+      - KC_DB=dev-file  # Para desenvolvimento
+    ports:
+      - "8080:8080"
+    command: start-dev  # Modo de desenvolvimento
