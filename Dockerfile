@@ -11,5 +11,5 @@ ENV JAVA_OPTS="-Xmx256m -Xss512k -Djava.awt.headless=true"
 
 EXPOSE 8080
 
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev"]
-
+# Use CMD para iniciar o Keycloak
+CMD ["/opt/keycloak/bin/kc.sh", "start-dev"]
