@@ -8,8 +8,6 @@ ENV KC_DB=dev-file
 ENV JAVA_OPTS="-Xmx256m -Xss512k -Djava.awt.headless=true"
 ENV QUARKUS_LOG_LEVEL=DEBUG
 
-EXPOSE 8080
 
-ENTRYPOINT ["/bin/sh", "-c", "/opt/keycloak/bin/kc.sh start-dev --http-port=$PORT"]
-CMD /opt/keycloak/bin/kc.sh start-dev --http-port=${PORT}
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev"]
 
