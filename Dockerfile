@@ -13,5 +13,6 @@ ENV QUARKUS_LOG_LEVEL=DEBUG
 
 EXPOSE 8080
 
-# Use CMD para iniciar o Keycloak
-CMD ["/opt/keycloak/bin/kc.sh", "start"]
+# Usando o exec form para garantir que o script seja executado corretamente
+ENTRYPOINT ["/opt/keycloak/bin/kc.sh"]
+CMD ["start-dev"]  # Modo de desenvolvimento
