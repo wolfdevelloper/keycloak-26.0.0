@@ -10,12 +10,12 @@ ARG ENV=dev  # Padrão para desenvolvimento
 
 ENV KC_BOOTSTRAP_ADMIN_USERNAME=admin
 ENV KC_BOOTSTRAP_ADMIN_PASSWORD=senha
-ENV KC_DB=h2
-ENV KC_DB_URL=jdbc:h2:mem:testdb
-ENV KC_DB_USERNAME=sa
-ENV KC_DB_PASSWORD=password
+ENV KC_DB=dev-mem
 ENV JAVA_OPTS="-Xmx256m -Xss512k -Djava.awt.headless=true"
 ENV QUARKUS_LOG_LEVEL=DEBUG
 
+# Adicionar um log para verificar o valor da variável PORT
+RUN echo 'Verificando a variável PORT: ${PORT}'
+
 # Configure o ponto de entrada para iniciar o Keycloak
-ENTRYPOINT ["/opt/keycloak/bin/kc.sh", "start-dev", "--http-port=${PORT}"]
+ENTRYPOINT ["/bin/sh", "-c", "echo 'Porta configurada: ${PORT}' && /opt/keycloak/bin/kc.sh start-dev --http-port=${PORT}"]
