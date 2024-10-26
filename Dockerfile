@@ -1,6 +1,6 @@
 # Dockerfile
 
-FROM quay.io/keycloak/keycloak:latest
+FROM quay.io/keycloak/keycloak:26.0.0
 
 ARG ENV=dev  # Padrão para desenvolvimento
 
@@ -11,5 +11,5 @@ ENV JAVA_OPTS="-Xmx300m -Xss512k -Djava.awt.headless=true"
 
 EXPOSE 8080
 
-CMD ["kc.sh", "start"]
+CMD ["kc.sh", "start-dev"]
 
